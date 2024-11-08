@@ -1,0 +1,16 @@
+on: push
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone the repo
+              uses: actions/checkout@v4
+            - name: Install node.js
+              uses: actions/setup-node@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+            - name: Install dependencies
+              run: pnpm install
+            - name: Run tests
+              run: pnpm test
